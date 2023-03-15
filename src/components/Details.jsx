@@ -14,6 +14,25 @@ function Details() {
   const recipe = location.state?.recipe;
   console.log(recipe, `recipe`);
 
+  const mapRecipesToTableRows = (recipe) => {
+    return Object.keys(recipe)
+      .filter((key) => {
+        const value = recipe[key];
+        return key.includes("Ingredient") && value;
+      })
+      .map((row, i) => (
+        <TableRow
+          key={i}
+          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        >
+          <TableCell component="th" scope="row">
+            {recipe[`strIngredient${i + 1}`]}
+          </TableCell>
+          <TableCell align="right">{recipe[`strMeasure${i + 1}`]}</TableCell>
+        </TableRow>
+      ));
+  };
+
   return (
     <div>
       <Grid2 container spacing={3}>
@@ -37,23 +56,7 @@ function Details() {
                   </TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody>
-                {Object.entries(recipe)
-                  .filter((item) => item[0].includes("Ingredient") && item[1])
-                  .map((row, i) => (
-                    <TableRow
-                      key={i}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        {recipe[`strIngredient${i + 1}`]}
-                      </TableCell>
-                      <TableCell align="right">
-                        {recipe[`strMeasure${i + 1}`]}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-              </TableBody>
+              <TableBody>{mapRecipesToTableRows(recipe)}</TableBody>
             </Table>
           </TableContainer>
         </Grid2>
