@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const bookmarkSlice = createSlice({
+export const bookmarks = createSlice({
   name: "bookmarks",
   initialState: {
     value: [],
@@ -14,6 +14,6 @@ export const bookmarkSlice = createSlice({
   },
 });
 
-export const { add, remove } = bookmarkSlice.actions;
+export const { add, remove } = bookmarks.actions;
 export const selectBookmarks = (state) => state.bookmarks.value;
-export default bookmarkSlice.reducer;
+export default bookmarks.reducer;
