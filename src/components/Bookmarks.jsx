@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { selectBookmarks } from "../store/reducers/bookmarks";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import RecipeCard from "./RecipeCard";
