@@ -117,7 +117,7 @@ function Search() {
           <div style={{ display: "flex", overflow: "auto" }}>
             {response?.meals?.map((meal) => (
               <div key={meal.idMeal} style={{ margin: "10px" }}>
-                <RecipeCard details={meal} showBookMark={true} />
+                <RecipeCard details={meal} showBookMarkButton={true} />
               </div>
             ))}
           </div>
