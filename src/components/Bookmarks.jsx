@@ -14,7 +14,7 @@ export default function Bookmarks() {
           <div style={{ display: "flex" }}>
             {bookMarkedMeals.map((meal) => (
               <div key={meal.idMeal} style={{ margin: "10px" }}>
-                <RecipeCard details={meal} isBookmark={false} />
+                <RecipeCard details={meal} showBookMark={false} />
               </div>
             ))}
           </div>

@@ -9,7 +9,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-function RecipeCard({ details, isBookmark }) {
+function RecipeCard({ details, showBookMark }) {
   const dispatch = useDispatch();
 
   return (
@@ -34,7 +34,7 @@ function RecipeCard({ details, isBookmark }) {
           <Link to="/details" state={{ recipe: details }}>
             <Button size="small">Details</Button>
           </Link>
-          {isBookmark ? (
+          {showBookMark ? (
             <>
               <Button onClick={() => dispatch(add(details))} size="small">
                 Bookmark
